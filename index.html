@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blow Out the Candle 🎂</title>
+  <style>
+    body {
+      background-color:#d63855;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: "Courier New", monospace;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #aaa;
+      font-size: 1rem;
+    }
+
+    .cake {
+      position: relative;
+      width: 120px;
+      height: 80px;
+      background: #f8e3c2;
+      border-radius: 6px;
+      box-shadow: 0 4px 0 #e0c19c;
+    }
+
+    .frosting {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: #6bc5ff;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .candle {
+      position: absolute;
+      width: 20px;
+      height: 50px;
+      background: #ff7fcf;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .flame {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 25px;
+      background: radial-gradient(ellipse at center, #fff8a8 40%, #ffbf00 90%);
+      border-radius: 50% 50% 50% 50%;
+      animation: flicker 0.2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(-50%) scale(1.1);
+        opacity: 0.9;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 HAPPY BIRTHDAY! 🎉</h1>
+   <p style= "font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: white;">I love you so much my little princess, wish you all the best !!! </p>
+   <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+   <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+
+   
+  <div class="cake">
+    <div class="frosting"></div>
+    <div class="candle">
+      <div class="flame" id="flame"></div>
+    </div>
+  </div>
+
+  <p style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: white;">Лаагаа үлээхээсээ өмнө хүслээ шивнээрэй <3 🎂</p>
+
+  <script>
+    const flame = document.getElementById("flame");
+
+    // Get microphone input
+    async function startMic() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const audioContext = new AudioContext();
+        const source = audioContext.createMediaStreamSource(stream);
+        const analyser = audioContext.createAnalyser();
+        source.connect(analyser);
+        const dataArray = new Uint8Array(analyser.fftSize);
+
+        function detectBlow() {
+          analyser.getByteTimeDomainData(dataArray);
+          let max = 0;
+          for (let i = 0; i < dataArray.length; i++) {
+            const val = Math.abs(dataArray[i] - 128);
+            if (val > max) max = val;
+          }
+
+          // Adjust sensitivity here
+          if (max > 30) {
+            flame.classList.add("hidden");
+          }
+
+          requestAnimationFrame(detectBlow);
+        }
+
+        detectBlow();
+      } catch (err) {
+        alert("Microphone access denied. Please allow it to blow out the candle!");
+      }
+    }
+
+    startMic();
+  </script>
+</body>
+</html>
