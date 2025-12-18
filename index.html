@@ -1,147 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blow Out the Candle 🎂</title>
-  <style>
-    body {
-      background-color:#d63855;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: white;
-      font-family: "Courier New", monospace;
-      overflow: hidden;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Birthday Cake 🎂</title>
 
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
+<style>
+body {
+  background:rgb(240, 192, 255);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  color:white;
+  font-family: "Courier New", monospace;
+}
 
-    p {
-      color: #aaa;
-      font-size: 1rem;
-    }
+/* INPUT */
+.input-box {
+  margin-bottom: 160px;
+}
 
-    .cake {
-      position: relative;
-      width: 120px;
-      height: 80px;
-      background: #f8e3c2;
-      border-radius: 6px;
-      box-shadow: 0 4px 0 #e0c19c;
-    }
+input, button {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+}
 
-    .frosting {
-      position: absolute;
-      top: -10px;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      background: #6bc5ff;
-      border-radius: 4px 4px 0 0;
-    }
+button {
+  cursor: pointer;
+}
 
-    .candle {
-      position: absolute;
-      width: 20px;
-      height: 50px;
-      background: #ff7fcf;
-      top: -50px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 3px;
-    }
+/* CAKE */
+.cake {
+  position: relative;
+  width: 220px;
+  height: 130px;
+  background: #4b2e1f;
+  border-radius: 0 0 20px 20px;
+  box-shadow: inset 0 -15px #3a2217;
+}
 
-    .flame {
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 14px;
-      height: 25px;
-      background: radial-gradient(ellipse at center, #fff8a8 40%, #ffbf00 90%);
-      border-radius: 50% 50% 50% 50%;
-      animation: flicker 0.2s infinite alternate;
-    }
+/* CAKE LAYERS */
+.cake::before {
+  content:"";
+  position:absolute;
+  top:40px;
+  left:0;
+  width:100%;
+  height:10px;
+  background:#3a2217;
+}
 
-    @keyframes flicker {
-      from {
-        transform: translateX(-50%) scale(1);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(-50%) scale(1.1);
-        opacity: 0.9;
-      }
-    }
+.cake::after {
+  content:"";
+  position:absolute;
+  top:80px;
+  left:0;
+  width:100%;
+  height:10px;
+  background:#3a2217;
+}
 
-    .hidden {
-      display: none;
-    }
-  </style>
+/* FROSTING */
+.frosting {
+  position:absolute;
+  top:-25px;
+  left:0;
+  width:100%;
+  height:40px;
+  background:#fff;
+  border-radius: 20px 20px 10px 10px;
+}
+
+.drip {
+  position:absolute;
+  width:20px;
+  height:30px;
+  background:#fff;
+  border-radius:0 0 10px 10px;
+  top:30px;
+}
+
+.drip:nth-child(1){ left:20px; height:25px;}
+.drip:nth-child(2){ left:70px; height:35px;}
+.drip:nth-child(3){ left:130px; height:28px;}
+.drip:nth-child(4){ left:180px; height:32px;}
+
+/* CANDLES */
+.candles {
+  position:absolute;
+  top:-70px;
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.candle {
+  width:8px;
+  height:35px;
+  background:#d93030;
+  margin:4px;
+  position:relative;
+  border-radius:2px;
+}
+
+.flame {
+  position:absolute;
+  top:-16px;
+  left:50%;
+  transform:translateX(-50%);
+  width:10px;
+  height:16px;
+  background: radial-gradient(circle, #fff7b2 40%, #ffb300 90%);
+  border-radius:50%;
+  animation:flicker 0.2s infinite alternate;
+}
+
+.input-box {
+  margin-bottom: 160px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+input {
+  width: 200px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+
+@keyframes flicker {
+  from { transform:translateX(-50%) scale(1); }
+  to { transform:translateX(-50%) scale(1.15); }
+}
+
+.hidden { display:none; }
+</style>
 </head>
+
 <body>
-  <h1>🎉  Төрсөн өдрийн мэнд хүргэе! DOOGII Сестренка моя 🎉</h1>
-   <p style= "font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: white;">I LOVE U SO MUCH ❤️❤️❤️ </p>
 
-   <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
-   <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-   
+<p style="color: rgb(1, 6, 7);">ХӨӨРХӨН ЧООГИЙ ЭГЧДЭЭ ТӨРСӨН ӨДРИЙН МЭНД ХҮРГЭЕ!💖 хайртай жүү </p>
 
 
+<div class="input-box">
+  <input type="number" id="age" placeholder="Насаа оруулуурай" min="1" max="150">
+  <button onclick="createCake()">оруулах</button>
+</div>
 
-   
-  <div class="cake">
-    <div class="frosting"></div>
-    <div class="candle">
-      <div class="flame" id="flame"></div>
-    </div>
+<div class="cake">
+  <div class="frosting">
+    <div class="drip"></div>
+    <div class="drip"></div>
+    <div class="drip"></div>
+    <div class="drip"></div>
   </div>
+  <div class="candles" id="candles"></div>
+</div>
 
-  <p style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: white;">Лаагаа үлээхээсээ өмнө хүслээ шивнээрэй <3 🎂</p>
+<p style="color:rgb(1, 6, 7);">Лаагаа үлээхээсээ өмнө хүслээ шивнээрэй 💖</p>
 
-  <script>
-    const flame = document.getElementById("flame");
+<script>
+let flames = [];
 
-    // Get microphone input
-    async function startMic() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        const audioContext = new AudioContext();
-        const source = audioContext.createMediaStreamSource(stream);
-        const analyser = audioContext.createAnalyser();
-        source.connect(analyser);
-        const dataArray = new Uint8Array(analyser.fftSize);
+function createCake() {
+  const age = document.getElementById("age").value;
+  const candlesBox = document.getElementById("candles");
 
-        function detectBlow() {
-          analyser.getByteTimeDomainData(dataArray);
-          let max = 0;
-          for (let i = 0; i < dataArray.length; i++) {
-            const val = Math.abs(dataArray[i] - 128);
-            if (val > max) max = val;
-          }
+  candlesBox.innerHTML = "";
+  flames = [];
 
-          // Adjust sensitivity here
-          if (max > 30) {
-            flame.classList.add("hidden");
-          }
+  for (let i = 0; i < age; i++) {
+    const candle = document.createElement("div");
+    candle.className = "candle";
 
-          requestAnimationFrame(detectBlow);
-        }
+    const flame = document.createElement("div");
+    flame.className = "flame";
 
-        detectBlow();
-      } catch (err) {
-        alert("Microphone access denied. Please allow it to blow out the candle!");
+    candle.appendChild(flame);
+    candlesBox.appendChild(candle);
+    flames.push(flame);
+  }
+
+  startMic();
+}
+
+async function startMic() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const audioContext = new AudioContext();
+    const analyser = audioContext.createAnalyser();
+    const source = audioContext.createMediaStreamSource(stream);
+    source.connect(analyser);
+
+    const data = new Uint8Array(analyser.fftSize);
+
+    function detectBlow() {
+      analyser.getByteTimeDomainData(data);
+      let max = 0;
+
+      for (let i = 0; i < data.length; i++) {
+        const v = Math.abs(data[i] - 128);
+        if (v > max) max = v;
       }
+
+      if (max > 30) {
+        flames.forEach(f => f.classList.add("hidden"));
+      }
+
+      requestAnimationFrame(detectBlow);
     }
 
-    startMic();
-  </script>
+    detectBlow();
+  } catch {
+    alert("Allow microphone to blow the candles 🎤");
+  }
+}
+</script>
+
 </body>
 </html>
